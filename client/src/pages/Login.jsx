@@ -41,8 +41,8 @@ function Login() {
       <div className="w-full max-w-sm flex flex-col gap-6">
         
         <div className="text-center mb-4">
-          <div className="w-12 h-12 bg-white text-black flex items-center justify-center rounded-xl mx-auto mb-6 font-bold text-xl shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-            H
+          <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
+            <img src="/logo.png" alt="Relay Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-semibold text-white mb-1">Welcome back</h1>
           <p className="text-neutral-400 text-sm">Sign in to your account</p>

@@ -94,7 +94,7 @@ export async function register(data) {
             data: newUser,
         };
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return {
             status: 500,
             message: "Internal Server Error",
@@ -135,7 +135,7 @@ export async function login(data) {
         }
     }
     //jwt signings
-    console.log(userData);
+
     const token = generateToken(userData);
     return {
         status: 200,

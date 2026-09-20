@@ -9,9 +9,7 @@ export async function updateTicketStatus(ticketId, newStatus, user) {
                 message: "Invalid ticket ID"
             };
         }
-        console.log("TICKET ID:", ticketId);
-        console.log("NEW STATUS:", newStatus);
-        console.log("USER:", user);
+
 
         // workflow logic will be added here
         const allowedStatuses = [
@@ -55,13 +53,7 @@ export async function updateTicketStatus(ticketId, newStatus, user) {
             "Closed": [],
             "Reopened": ["In Progress"]
         };
-        console.log("CURRENT STATUS:", currentStatus);
-        console.log("NEW STATUS:", newStatus);
-        console.log("ALLOWED STATUSES:", allowedStatuses);
-        console.log(
-            "STATUS VALID:",
-            allowedStatuses.includes(newStatus)
-        );
+
         const allowedNextStatuses = allowedTransitions[currentStatus] || [];
 
         if (!allowedNextStatuses.includes(newStatus)) {
@@ -147,7 +139,7 @@ export async function updateTicketStatus(ticketId, newStatus, user) {
             data: status
         }
     } catch (err) {
-        console.log("STATUS UPDATE ERROR:", err);
+        console.error("STATUS UPDATE ERROR:", err);
 
         return {
             status: 500,

@@ -70,7 +70,7 @@ function DashboardLayout({ children }) {
         {/* Left: Brand */}
         <div className="w-1/3 flex items-center">
           <h2 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-white text-black flex items-center justify-center font-bold text-xs">R</div>
+            <img src="/logo.png" alt="Relay Logo" className="w-8 h-8 object-contain" />
             RELAY
           </h2>
         </div>

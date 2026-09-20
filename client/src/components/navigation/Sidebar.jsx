@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <GlassCard level={1} className="hidden md:flex flex-col w-64 h-[calc(100vh-2rem)] sticky top-4 m-4 p-6 border-r-0 rounded-3xl">
       <div className="flex items-center gap-3 mb-10 px-2">
-        <LifeBuoy className="w-8 h-8 text-white" />
+        <img src="/logo.png" alt="Relay Logo" className="w-8 h-8 object-contain" />
         <span className="font-semibold text-xl tracking-tight">RELAY</span>
       </div>
 
@@ -31,10 +31,9 @@ const Sidebar = () => {
             key={item.path}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 group ${
-                isActive 
-                  ? 'bg-white/10 text-white font-medium' 
-                  : 'text-neutral-400 hover:bg-white/5 hover:text-neutral-200'
+              `flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 group ${isActive
+                ? 'bg-white/10 text-white font-medium'
+                : 'text-neutral-400 hover:bg-white/5 hover:text-neutral-200'
               }`
             }
           >

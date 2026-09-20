@@ -46,7 +46,6 @@ export async function createTicket(ticketData) {
                 .insert([ticketToInsert])
                 .select()
                 .single();
-        console.log(ticketCreationError);
         if (ticketCreationError) {
             return {
                 status: 500,
@@ -65,7 +64,7 @@ export async function createTicket(ticketData) {
         }
 
     } catch (err) {
-        console.log(err);
+        console.error(err);
 
         return {
             status: 500,
@@ -108,7 +107,7 @@ export async function getAllTickets(org_id, user_id, role) {
             }) : []
         }
     } catch (err) {
-        console.log(err);
+        console.error(err);
         return {
             status: 500,
             message: "Internal server error"
@@ -124,14 +123,7 @@ export async function getTicketbyId(
     userOrgId,
     userRole
 ) {
-    console.log("GET TICKET SERVICE HIT");
-
     try {
-        console.log("TICKET ID:", ticketId);
-        console.log("USER ID:", userId);
-        console.log("USER ORG ID:", userOrgId);
-        console.log("USER ROLE:", userRole);
-
         if (!isUUID(ticketId)) {
             return {
                 status: 400,
@@ -202,8 +194,6 @@ export async function getTicketbyId(
 export async function updateTicket(ticketId, updatedData, org_id, user_id, role) {
 
     try {
-        console.log("TICKET ID:", ticketId);
-        console.log("USER ORG ID:", org_id);
         if (
             !updatedData.title || !updatedData.description || !updatedData.priority || !updatedData.title.trim() || !updatedData.description.trim()
         ) {
@@ -289,7 +279,7 @@ export async function updateTicket(ticketId, updatedData, org_id, user_id, role)
             ticket: updateTicket
         };
     } catch (err) {
-        console.log(err.message);
+        console.error(err.message);
 
         return {
             status: 500,
@@ -371,7 +361,7 @@ export async function deleteTicket(ticketId, org_id, role) {
         };
 
         } catch (err) {
-        console.log(err);
+        console.error(err);
 
         return {
             status: 500,
@@ -508,7 +498,7 @@ export async function assignTicket(info) {
         };
 
     } catch (err) {
-        console.log(err);
+        console.error(err);
 
         return {
             status: 500,
@@ -538,7 +528,7 @@ export async function getAgents(org_id) {
             agents
         };
     } catch (err) {
-        console.log(err);
+        console.error(err);
         return {
             status: 500,
             message: "Internal server error"

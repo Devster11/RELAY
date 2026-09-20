@@ -6,7 +6,6 @@ export async function createTicket(req, res) {
     const { title, description, priority } = req.body;
 
     try {
-        console.log(req.user);
         const ticketData = {
             title: title,
             description: description,
@@ -15,7 +14,6 @@ export async function createTicket(req, res) {
             created_by: req.user.user_id,
             org_id: req.user.org_id
         };
-        console.log(ticketData);
         const result = await ticketServices.createTicket(ticketData);
         return res.status(result.status).json(result)
     } catch (error) {
@@ -37,19 +35,11 @@ export async function getAllTickets(req, res) {
 }
 
 export async function getTicketbyId(req, res) {
-    console.log("GET TICKET CONTROLLER HIT");
-
     try {
-        console.log("PARAMS:", req.params);
-        console.log("USER:", req.user);
-
         const ticketId = req.params.id;
         const userId = req.user.user_id;
-        const userOrgId = req.user.org_id
+        const userOrgId = req.user.org_id;
         const userRole = req.user.role
-
-        console.log("TICKET ID FROM PARAM:", ticketId);
-        console.log("ORG ID FROM USER:", req.user.org_id);
 
         const result = await ticketServices.getTicketbyId(
             ticketId,
@@ -58,12 +48,10 @@ export async function getTicketbyId(req, res) {
             userRole,
         );
 
-        console.log("SERVICE RESULT:", result);
-
         return res.status(result.status).json(result);
 
     } catch (err) {
-        console.log("CONTROLLER ERROR:", err);
+        console.error("CONTROLLER ERROR:", err);
 
         return res.status(500).json({
             message: "Internal server error"
@@ -78,7 +66,7 @@ export async function updateTicket(req, res) {
         const result = await ticketServices.updateTicket(ticketId, updatedData, req.user.org_id, req.user.user_id, req.user.role);
         return res.status(result.status).json(result);
     } catch (err) {
-        console.log(err);
+        console.error(err);
         res.status(500).json({
             message: "Internal server error"
         })
@@ -91,7 +79,7 @@ export async function deleteTicket(req, res) {
         const result = await ticketServices.deleteTicket(ticketId, req.user.org_id, req.user.role);
         return res.status(result.status).json(result);
     } catch (err) {
-        console.log(err);
+        console.error(err);
         res.status(500).json({
             message: "Internal server error"
         })
@@ -115,7 +103,7 @@ export async function assignTicket(req, res) {
         return res.status(result.status).json(result);
 
     } catch (err) {
-        console.log(err);
+        console.error(err);
 
         return res.status(500).json({
             message: "Internal server error"
@@ -132,7 +120,7 @@ export async function updateTicketStatus(req, res) {
 
         return res.status(result.status).json(result);
     } catch (err) {
-        console.log(err);
+        console.error(err);
 
         return res.status(500).json({
             message: "Internal server error"
@@ -146,7 +134,7 @@ export async function getAgents(req, res) {
         const result = await ticketServices.getAgents(req.user.org_id);
         return res.status(result.status).json(result);
     } catch (err) {
-        console.log(err);
+        console.error(err);
         return res.status(500).json({
             message: "Internal server error"
         });

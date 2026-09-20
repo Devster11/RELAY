@@ -36,7 +36,7 @@ export async function createComment(ticketId, comment, user) {
             .maybeSingle();
 
         if (ticketError) {
-            console.log("TICKET FETCH ERROR:", ticketError);
+            console.error("TICKET FETCH ERROR:", ticketError);
 
             return {
                 status: 500,
@@ -108,7 +108,7 @@ export async function createComment(ticketId, comment, user) {
             .single();
 
         if (commentError) {
-            console.log("COMMENT CREATION ERROR:", commentError);
+            console.error("COMMENT CREATION ERROR:", commentError);
 
             return {
                 status: 500,
@@ -126,7 +126,7 @@ export async function createComment(ticketId, comment, user) {
         };
 
     } catch (err) {
-        console.log("COMMENT CREATION ERROR:", err);
+        console.error("COMMENT CREATION ERROR:", err);
 
         return {
             status: 500,
@@ -155,7 +155,7 @@ export async function getCommentsByTicket(ticketId, user) {
             .maybeSingle();
 
         if (ticketError) {
-            console.log("TICKET FETCH ERROR:", ticketError);
+            console.error("TICKET FETCH ERROR:", ticketError);
 
             return {
                 status: 500,
@@ -209,7 +209,7 @@ export async function getCommentsByTicket(ticketId, user) {
             .order("created_at", { ascending: true });
 
         if (commentsError) {
-            console.log("COMMENTS FETCH ERROR:", commentsError);
+            console.error("COMMENTS FETCH ERROR:", commentsError);
 
             return {
                 status: 500,
@@ -227,7 +227,7 @@ export async function getCommentsByTicket(ticketId, user) {
         };
 
     } catch (err) {
-        console.log("GET COMMENTS ERROR:", err);
+        console.error("GET COMMENTS ERROR:", err);
 
         return {
             status: 500,

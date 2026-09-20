@@ -18,5 +18,4 @@ router.put("/:id", updateTicket);
 router.delete("/:id", authorizeRole(roles.ADMIN), deleteTicket);
 router.patch("/:id/assign", authorizeRole(roles.ADMIN, roles.AGENT), assignTicket);
 router.patch("/:id/status", updateTicketStatus);
-console.log("TICKET ROUTES LOADED");
 export default router;
