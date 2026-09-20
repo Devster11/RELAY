@@ -16,12 +16,8 @@ import orgRoutes from "./routes/orgRoutes.js";
 const app = express();
 
 const allowedOrigins = [
-    "http://localhost:5173",
-    "http://localhost:5174"
+  process.env.FRONTEND_URL || 'http://localhost:5173'
 ];
-if (process.env.FRONTEND_URL) {
-    allowedOrigins.push(process.env.FRONTEND_URL);
-}
 
 const corsPolicy = {
     origin: allowedOrigins,
