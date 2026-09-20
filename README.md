@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-    <img src="./client/public/relay-logo.png" alt="Relay Logo" width="100" />
+    <img src="client/public/logo.png" alt="Relay Logo" width="200" />
   <br />
 
   # RELAY 
@@ -126,5 +126,5 @@ RELAY/
 ```
 
 <div align="center">
-  <sub>Built with ❤️ by Kresh</sub>
+  <sub>Built with ❤️ by kreshhhh and pradeepppp</sub>
 </div>
