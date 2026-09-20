@@ -149,12 +149,12 @@ function TotalTicketsChart({ tickets }) {
       </div>
 
       {/* Chart Section */}
-      <div className="flex-1 w-full relative px-2 pb-4 mt-6" style={{ minHeight: '220px' }}>
+      <div className="flex-1 w-full relative px-5 pb-4 mt-6" style={{ minHeight: '220px' }}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             key={isInView ? 'visible' : 'hidden'}
             data={chartData}
-            margin={{ top: 20, right: 30, left: 10, bottom: 10 }}
+            margin={{ top: 20, right: 20, left: 0, bottom: 10 }}
           >
             <defs>
               <linearGradient id="colorCurrent" x1="0" y1="0" x2="0" y2="1">
@@ -179,10 +179,11 @@ function TotalTicketsChart({ tickets }) {
             />
 
             <YAxis
+              width={25}
               axisLine={false}
               tickLine={false}
               tick={{ fill: '#737373', fontSize: 11, fontWeight: 500 }}
-              dx={-10}
+              dx={-5}
               tickFormatter={(val) => val === 0 ? '0' : val}
             />
 

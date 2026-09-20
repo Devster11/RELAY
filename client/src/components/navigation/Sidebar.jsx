@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Ticket, Book, Users, LifeBuoy } from 'lucide-react';
-import GlassCard from '../ui/GlassCard';
+
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Sidebar = () => {
@@ -15,7 +15,7 @@ const Sidebar = () => {
   ].filter(item => item.roles.includes(user?.role));
 
   return (
-    <GlassCard level={1} className="hidden md:flex flex-col w-64 h-[calc(100vh-2rem)] sticky top-4 m-4 p-6 border-r-0 rounded-3xl">
+    <div className="glass-nav hidden md:flex flex-col w-64 h-[calc(100vh-2rem)] sticky top-4 m-4 p-6 border-r-0 rounded-3xl">
       <div className="flex items-center gap-3 mb-10 px-2">
         <img src="/logo.png" alt="Relay Logo" className="w-8 h-8 object-contain" />
         <span className="font-semibold text-xl tracking-tight">RELAY</span>
@@ -49,7 +49,7 @@ const Sidebar = () => {
           </NavLink>
         ))}
       </nav>
-    </GlassCard>
+    </div>
   );
 };
 

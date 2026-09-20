@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Ticket, Plus, User, Users, BookOpen } from 'lucide-react';
-import GlassCard from '../ui/GlassCard';
+
 import { AuthContext } from '../../contexts/AuthContext';
 
 const BottomNav = () => {
@@ -21,9 +21,8 @@ const BottomNav = () => {
 
   return (
     <div className="fixed bottom-6 left-0 right-0 flex justify-center z-50 px-4">
-      <GlassCard 
-        level={3} 
-        className="flex items-center justify-between px-2 py-1.5 rounded-full w-full max-w-sm scale-90 hover:scale-100 transition-transform duration-300 origin-bottom"
+      <div 
+        className="glass-nav flex items-center justify-between px-2 py-1.5 rounded-full w-full max-w-sm scale-90 hover:scale-100 transition-transform duration-300 origin-bottom"
       >
         {navItems.map((item) => (
           <NavLink
@@ -53,7 +52,7 @@ const BottomNav = () => {
             )}
           </NavLink>
         ))}
-      </GlassCard>
+      </div>
     </div>
   );
 };
