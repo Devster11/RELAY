@@ -1,130 +1,260 @@
+# RELAY
+
 <div align="center">
-  <br />
-    <img src="client/public/logo.png" alt="Relay Logo" width="200" />
-  <br />
-
-  # RELAY 
-  **Modern, Blazing Fast Ticketing & Helpdesk System**
-
-  <p align="center">
-    A premium, frosted-glass themed helpdesk platform built for modern teams.
-  </p>
-
-  <p align="center">
-    <a href="#features">Features</a> •
-    <a href="#tech-stack">Tech Stack</a> •
-    <a href="#quick-start">Quick Start</a> •
-    <a href="#environment-variables">Environment Variables</a>
+  <img src="https://raw.githubusercontent.com/Devster11/RELAY/main/client/public/logo.png" alt="RELAY Logo" width="220" />
+  <h3>Modern Ticketing & Helpdesk Platform</h3>
+  <p>
+    <strong>RELAY</strong> is a sleek, workflow-focused support and operations platform designed to help teams manage tickets, collaborate faster, and resolve issues with clarity.
   </p>
 </div>
 
----
+<p align="center">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
+  <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img alt="Express" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img alt="Supabase" src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</p>
 
-## ⚡ Features
+## Overview
 
-- **Premium UI/UX:** iOS-style frosted glassmorphism (`backdrop-filter`) navigation, dark mode by default, and buttery smooth animations using Framer Motion.
-- **Analytics Dashboard:** Real-time visual metrics for ticket trends, ticket distributions, and queue health using Recharts.
-- **Ticket Management:** Create, assign, update, and resolve tickets instantly. 
-- **Organization & Team Management:** Secure invite-based team collaboration with robust RBAC (Role-Based Access Control).
-- **Fully Responsive:** Adaptive layouts featuring a desktop sidebar and a sleek mobile bottom navigation bar.
+RELAY is a modern helpdesk and ticketing system built for customer support, internal operations, and team coordination. It gives businesses a structured way to manage incoming issues, assign ownership, track status, and maintain a knowledge-first support workflow.
 
-## 🛠️ Tech Stack
+The platform combines an elegant React frontend with a secure Express backend and Supabase-powered data layer, enabling a clean experience for both agents and end users.
+
+## Why RELAY
+
+- Built for fast team collaboration
+- Clean, glassmorphism-inspired dashboard experience
+- Real-time ticket lifecycle tracking
+- Support for org-based access and invites
+- Scalable architecture that can grow with your support workflow
+
+## Key Features
+
+- Ticket creation, assignment, prioritization, and updates
+- Dashboard analytics for ticket trends and operational health
+- Team onboarding with org setup and invite workflow
+- Knowledge base support for reusable guidance and answer library
+- Authentication and authorization flow for role-based access
+- Responsive interface for desktop and mobile-friendly usage
+- Dark-mode-first interface with smooth UI motions and polished UX
+
+## Architecture
+
+```text
+┌─────────────────────────────┐
+│        React + Vite         │
+│    Frontend Application     │
+│   (Dashboard, Tickets, Auth) │
+└──────────────┬──────────────┘
+               │ HTTPS / REST API
+               ▼
+┌─────────────────────────────┐
+│   Express.js + Node.js      │
+│   REST API Layer            │
+│   Auth, Tickets, Orgs       │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│       Supabase / SQL        │
+│ Data Storage + Auth Layer   │
+└─────────────────────────────┘
+```
+
+## Tech Stack
 
 ### Frontend
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
+- React 19
+- Vite
+- React Router
+- Tailwind CSS
+- Framer Motion
+- Recharts
+- Lucide React
 
 ### Backend
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+- Node.js
+- Express.js
+- JWT-based auth
+- Supabase JS SDK
+- CORS + dotenv + Morgan
 
----
+### Data & Services
+- Supabase
+- PostgreSQL-backed data models
+- Role-based access controls
+- Invite-based team workflow
 
-## 🚀 Quick Start
+## Repository Structure
+
+```text
+RELAY/
+├── client/                     # React frontend app
+│   ├── public/                # Static assets and branding
+│   ├── src/
+│   │   ├── components/        # Reusable UI and dashboard blocks
+│   │   ├── contexts/          # Auth and toast state
+│   │   ├── layouts/           # App layouts
+│   │   ├── pages/             # Route-based screens
+│   │   ├── routes/            # Routing configuration
+│   │   ├── services/          # API integrations
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── package.json
+│   ├── vite.config.js
+│   └── vercel.json
+├── server/                    # Express backend API
+│   ├── src/
+│   │   ├── controllers/       # Request handlers
+│   │   ├── middleware/        # Auth and org validation
+│   │   ├── routes/            # API endpoints
+│   │   ├── services/          # Business logic
+│   │   ├── config/            # DB and Supabase config
+│   │   ├── db/                # Database migrations
+│   │   ├── app.js
+│   │   └── server.js
+│   ├── package.json
+│   └── ...
+├── docs/                      # Project reports and documentation
+├── README.md
+├── V1_RELEASE_NOTES.md
+└── .gitignore
+```
+
+## Prerequisites
+
+Before running RELAY locally, ensure you have:
+
+- Node.js 18+
+- npm or yarn
+- A Supabase project (for database + auth integration)
+- Basic understanding of environment variables
+
+## Quick Start
 
 ### 1. Clone the repository
+
 ```bash
-git clone https://github.com/kresh11i/RELAY.git
+git clone https://github.com/Devster11/RELAY.git
 cd RELAY
 ```
 
-### 2. Install Dependencies
+### 2. Install dependencies
 
-**Backend:**
-```bash
-cd server
-npm install
-```
+#### Frontend
 
-**Frontend:**
 ```bash
 cd client
 npm install
 ```
 
-### 3. Setup Environment Variables
-Create a `.env` file in both the `server` and `client` directories. *(See [Environment Variables](#environment-variables) below)*
+#### Backend
 
-### 4. Run the Development Servers
-
-**Run Backend:**
 ```bash
-cd server
-npm run dev
+cd ../server
+npm install
 ```
 
-**Run Frontend:**
-```bash
-cd client
-npm run dev
-```
-The application will be available at `http://localhost:5173`.
+### 3. Configure environment variables
 
----
+Create a `.env` file in the `server` directory:
 
-## 🔐 Environment Variables
-
-### `server/.env`
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
 FRONTEND_URL=http://localhost:5173
+JWT_SECRET=your_super_secret_key
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```
 
-### `client/.env`
+Create a `.env` file in the `client` directory if needed:
+
 ```env
 VITE_BACKEND_URL=http://localhost:5000
 ```
 
----
+### 4. Run the app
 
-## 📂 Project Structure
+#### Start backend
 
-```text
-RELAY/
-├── client/                 # Frontend React Application
-│   ├── src/
-│   │   ├── components/     # Reusable UI components & charts
-│   │   ├── contexts/       # React Context (Auth, Toast)
-│   │   ├── layouts/        # Dashboard layout wrapping
-│   │   ├── pages/          # Full page views
-│   │   └── services/       # API integration
-│   └── index.html
-├── server/                 # Backend Node.js API
-│   ├── src/
-│   │   ├── controllers/    # Route controllers
-│   │   ├── middleware/     # Auth and validation guards
-│   │   ├── models/         # Mongoose schemas
-│   │   ├── routes/         # Express routes
-│   │   └── services/       # Business logic
-│   └── app.js              # Express app setup
-└── README.md
+```bash
+cd server
+npm run dev
 ```
 
+#### Start frontend
+
+```bash
+cd client
+npm run dev
+```
+
+The app should be available at:
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:5000`
+
+## Core Modules
+
+### Authentication
+RELAY includes login, registration, protected routes, and permission-based access control.
+
+### Ticket Management
+Agents can create support tickets, assign ownership, update statuses, and manage related messages.
+
+### Organization Management
+Provision team structure, invite-based onboarding, and role-based organizational access.
+
+### Knowledge Base
+Support workflows can leverage reusable knowledge content for quicker resolution and better consistency.
+
+## Scripts
+
+### Client
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
+
+### Server
+
+```bash
+npm run dev
+npm run start
+```
+
+## Deployment
+
+This repo is structured for a modern deployment setup:
+
+- Frontend: deployable to Vercel
+- Backend: deployable to Render, Railway, or any Node-compatible platform
+- Database: Supabase-powered persistence layer
+
+## Contributing
+
+Contributions are welcome. If you would like to improve RELAY, feel free to:
+
+1. Fork the repo
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
+
+## License
+
+This project is currently unlicensed unless otherwise specified by the repository owner.
+
+---
+
 <div align="center">
-  <sub>Built with ❤️ by kreshhhh and pradeepppp</sub>
+  <sub>Built with love by kresh and pradeep</sub>
 </div>
